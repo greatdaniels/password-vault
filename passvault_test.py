@@ -88,5 +88,16 @@ class TestCredentials(unittest.TestCase):
         found_credential = Credentials.find_by_account("Gmail")
         self.assertEqual(found_credential.account, test_credential.account)
 
+    def test_credential_exists(self):
+        '''
+        test to check if we can return a boolean if we cannot find a credential
+        '''
+        self.new_credential.save_credential()
+        test_credential = Credentials("Gmail", "greatdaniels", "k0E0y7")
+        test_credential.save_credential()
+
+        credential_exists = Credentials.credential_exists('Gmail')
+        self.assertTrue(credential_exists)
+
 if __name__ == '__main__':
     unittest.main()
