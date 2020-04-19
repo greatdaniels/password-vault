@@ -1,5 +1,6 @@
 import unittest
 from passvault import User
+from passvault import Credentials
 
 class TestUser(unittest.TestCase):
     """
@@ -8,7 +9,7 @@ class TestUser(unittest.TestCase):
 
     def setUp(self):
         '''
-        set up method to run before each test case
+        set up method to run before each user test case
         '''
         self.new_user = User('Dan','d3A1n7')
 
@@ -25,6 +26,25 @@ class TestUser(unittest.TestCase):
         '''
         self.new_user.save_user()
         self.assertEqual(len(User.user_list),1)
+
+class TestCredentials(unittest.TestCase):
+    """
+    Test class that defines test cases for class Credentials
+    """
+
+    def setUp(self):
+       '''
+       method that runs before each Credentials test case
+       '''
+       self.new_credential = Credentials('Instagram','Dan','b3O1y6') 
+
+    def test_init(self):
+        '''
+        test case to check whether new instance of credentials has been initialized properly
+        '''
+        self.assertEqual(self.new_credential.account,'Instagram')
+        self.assertEqual(self.new_credential.username,'Dan')
+        self.assertEqual(self.new_credential.password,'b3O1y6') 
 
 
 if __name__ == '__main__':
