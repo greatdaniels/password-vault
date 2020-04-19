@@ -91,10 +91,10 @@ class Credentials():
         '''
         return cls.credentials_list
 
-        def generatePass(stringLen = 8):
-            '''
-            generating a random password
-            '''
-            password = string.ascii_uppercase + string.ascii_lowercase + string.digits + '~!@#$%^&*'
-            return ''.join(random.choice(password) for i in range(stringLen))
+    def generatePass(stringLen = 8):
+        '''
+        generating a random password
+        '''
+        password = string.ascii_uppercase + string.ascii_lowercase + string.digits + '~!@#$%^&*'
+        return ''.join(random.choice(password) for i in range(stringLen))
         
