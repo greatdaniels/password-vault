@@ -38,7 +38,13 @@ class Credentials():
 
     def save_credential(self):
         '''
-        method that saves new credential to credentials list
+        method that saves a credential to credentials list
         '''
         Credentials.credentials_list.append(self)
+
+    def delete_credential(self):
+        '''
+        method that deletes a credential from credentials list
+        '''
+        Credentials.credentials_list.remove(self)
         
