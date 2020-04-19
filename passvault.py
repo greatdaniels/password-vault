@@ -23,6 +23,17 @@ class User:
     def display_user(cls):
         return cls.user_list
 
+    @classmethod
+    def verify_user(cls,username, password):
+        """
+        method to verify whether the user is in our user_list or not
+        """
+        a_user = ""
+        for user in User.user_list:
+            if(user.username == username and user.password == password):
+                    a_user == user.username
+        return a_user
+
 
 class Credentials():
     """
