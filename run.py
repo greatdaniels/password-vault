@@ -114,6 +114,7 @@ def passvault():
     while True:
         print("Use these short codes:\n CC - Create a new credential \n DC - Display Credentials \n FC - Find a credential \n GP - Generate A randomn password \n D - Delete credential \n EX - Exit the application \n")
         short_code = input().lower().strip()
+
         if short_code == "cc":
             print("Create New Credential")
             print("."*20)
@@ -136,4 +137,17 @@ def passvault():
             print('\n')
             print(f"Account Credential for: {account} - UserName: {userName} - Password:{password} created succesfully")
             print('\n')
+
+        elif short_code == "dc":
+            if display_credential():
+                print("Here's your list of acoounts: ")
+                 
+                print('*' * 30)
+                print('_'* 30)
+                for account in display_credential():
+                    print(f" Account:{account.account} \n User Name:{username}\n Password:{password}")
+                    print('_'* 30)
+                print('*' * 30)
+            else:
+                print("You don't have any credentials saved yet..........")
         
