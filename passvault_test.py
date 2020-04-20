@@ -13,6 +13,12 @@ class TestUser(unittest.TestCase):
         '''
         self.new_user = User('Dan','d3A1n7')
 
+    def tearDown(self):
+        '''
+        method that cleans up after each test
+        '''
+        User.user_list = []
+
     def test_init(self):
         '''
         test case to check if user object is initialized correctly
@@ -26,6 +32,16 @@ class TestUser(unittest.TestCase):
         '''
         self.new_user.save_user()
         self.assertEqual(len(User.user_list),1)
+
+    def test_find_user(self):
+
+        self.new_user.save_user()
+        test_user = User("Kim", "k0E0y7")
+        test_user.save_user()
+
+        found_user = User.verify_user("Kim", "k0E0y7")
+        self.assertEqual(found_user.username, test_user.username)
+        self.assertEqual(found_user.password, test_user.password)
 
 class TestCredentials(unittest.TestCase):
     """
