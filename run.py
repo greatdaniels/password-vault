@@ -98,5 +98,18 @@ def passvault():
         print(f"Hello {username}, the account has been created successfully. Your password is : {password} ")
         print("*" * 90)
 
+    elif short_code == "li":
+        print("*" * 70)
+        print("Enter username and password")
+        print("*" * 70)
+        username = input("User name : ")
+        password = input("Password : ")
+        login_user(username, password)
+        if True:
+            print(f"Hello {username}.Welcome To PassWord Vault")  
+            print('\n')
+        else:
+            #code to handle edge case
+
     
         
