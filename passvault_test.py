@@ -33,15 +33,20 @@ class TestUser(unittest.TestCase):
         self.new_user.save_user()
         self.assertEqual(len(User.user_list),1)
 
-    def test_find_user(self):
-
+    def test_check_user(self):
+        '''
+		test to check whether the login in function check_user works as expected
+		'''
         self.new_user.save_user()
         test_user = User("Kim", "k0E0y7")
         test_user.save_user()
-
-        found_user = User.verify_user("Kim", "k0E0y7")
-        self.assertEqual(found_user.username, test_user.username)
-        self.assertEqual(found_user.password, test_user.password)
+        newUser = User('','')
+        newUser.save_user()
+        for user in User.user_list:
+            if user.username == newUser.username and user.password == newUser.password:
+                current_user = user.username
+        return current_user
+        self.assertEqual(current_user, User.verify_user(newUser.username,newUser.password))
 
 class TestCredentials(unittest.TestCase):
     """

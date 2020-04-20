@@ -28,10 +28,11 @@ class User:
         """
         method to verify whether the user is in our user_list or not
         """
+        current_user = ''
         for user in cls.user_list:
             if user.username == username and user.password == password:
-                return user
-
+                current_user = user.username
+        return current_user
 
 class Credentials():
     """
