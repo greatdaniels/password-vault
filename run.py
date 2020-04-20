@@ -135,7 +135,7 @@ def passvault():
                     print("Invalid password please try again")
             save_credential(create_new_credential(account,userName,password))
             print('\n')
-            print(f"Account Credential for: {account} - UserName: {userName} - Password:{password} created succesfully")
+            print(f"Account Credential for: {account} - UserName: {userName} - Password: {password} created succesfully")
             print('\n')
 
         elif short_code == "dc":
@@ -144,8 +144,8 @@ def passvault():
                  
                 print('*' * 30)
                 print('_'* 30)
-                for account in display_credential():
-                    print(f" Account:{account.account} \n User Name:{username}\n Password:{password}")
+                for credential in display_credential():
+                    print(f" Account:{credential.account} \n User Name:{credential.username}\n Password:{credential.password}")
                     print('_'* 30)
                 print('*' * 30)
             else:
@@ -158,7 +158,7 @@ def passvault():
                 search_credential = find_credential(search_name)
                 print(f"Account Name : {search_credential.account}")
                 print('-' * 50)
-                print(f"User Name: {search_credential.userName} Password :{search_credential.password}")
+                print(f"User Name: {search_credential.username} Password :{search_credential.password}")
                 print('-' * 50)
             else:
                 print("That Credential does not exist")
@@ -170,7 +170,7 @@ def passvault():
             if find_credential(search_name):
                 search_credential = find_credential(search_name)
                 print("_"*50)
-                search_credential.delete_credentials()
+                search_credential.delete_credential()
                 print('\n')
                 print(f"Your stored credentials for : {search_credential.account} successfully deleted!!!")
                 print('\n')
