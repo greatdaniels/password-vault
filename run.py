@@ -150,4 +150,17 @@ def passvault():
                 print('*' * 30)
             else:
                 print("You don't have any credentials saved yet..........")
+
+        elif short_code == "fc":
+            print("Enter the Account Name you want to search for")
+            search_name = input().lower()
+            if find_credential(search_name):
+                search_credential = find_credential(search_name)
+                print(f"Account Name : {search_credential.account}")
+                print('-' * 50)
+                print(f"User Name: {search_credential.userName} Password :{search_credential.password}")
+                print('-' * 50)
+            else:
+                print("That Credential does not exist")
+                print('\n')
         
