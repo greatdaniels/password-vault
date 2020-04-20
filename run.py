@@ -108,8 +108,32 @@ def passvault():
         if True:
             print(f"Hello {username}.Welcome To PassWord Vault")  
             print('\n')
-        else:
+        # else:
             #code to handle edge case
 
-    
+    while True:
+        print("Use these short codes:\n CC - Create a new credential \n DC - Display Credentials \n FC - Find a credential \n GP - Generate A randomn password \n D - Delete credential \n EX - Exit the application \n")
+        short_code = input().lower().strip()
+        if short_code == "cc":
+            print("Create New Credential")
+            print("."*20)
+            print("Account name ...")
+            account = input().lower()
+            print("Your Account username")
+            userName = input()
+            while True:
+                print(" TP - To type your own pasword if you already have an account:\n GP - To generate random Password")
+                password_Choice = input().lower().strip()
+                if password_Choice == 'tp':
+                    password = input("Enter Your Own Password\n")
+                    break
+                elif password_Choice == 'gp':
+                    password = generate_password()
+                    break
+                else:
+                    print("Invalid password please try again")
+            save_credential(create_new_credential(account,userName,password))
+            print('\n')
+            print(f"Account Credential for: {account} - UserName: {userName} - Password:{password} created succesfully")
+            print('\n')
         
