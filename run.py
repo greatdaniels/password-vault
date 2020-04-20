@@ -176,4 +176,8 @@ def passvault():
                 print('\n')
             else:
                 print("That Credential you want to delete does not exist in your store yet")
+
+        elif short_code == 'gp':
+            password = generate_password()
+            print(f" {password} Has been generated succesfull. You can proceed to use it to your account")
         
