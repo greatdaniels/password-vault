@@ -71,3 +71,29 @@ def generate_password():
     function that generates random password
     '''
     auto_pass = Credentials.generatePass()
+    return auto_pass
+
+
+def passvault():
+    print("Welcome to the Password Vault...\n\n Enter one of the following to proceed: \n\n CA --> Create Account \n\n LI --> Login ")
+    short_code = input('').lower().strip()
+    if short_code == 'ca':
+        print('Sign Up')
+        print('*' * 70)
+        username = input("User_name: ")
+        while True:
+            print("TP --> To enter your password... \n\n GP --> To generate password...")
+            password_select = input().lower().strip()
+            if password_select == 'tp':
+                password = input("Enter Password: \n")
+                break
+            elif password_select == 'gp':
+                password = generate_password()
+                break
+            else:
+                print("Invalid")
+
+        save_user(create_new_user(username, password))
+        print('*' * 90)
+        print(f"Hello {username}, the account has been created successfully. Your password is : {password} ")
+        print("*" * 90)
